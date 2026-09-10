@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hitesh Communication | Mobile Gallery</title>
+<meta name="description" content="Hitesh Communication — premium mobile phones, latest smartphones, accessories and WhatsApp support.">
+<style>
+:root{
+  --bg:#f5f7fb; --card:#fff; --text:#101828; --muted:#667085;
+  --dark:#0b1220; --line:#e4e7ec; --accent:#2563eb; --green:#16a34a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+a{text-decoration:none;color:inherit}
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{max-width:1180px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:900;font-size:20px;letter-spacing:-.5px}.logo span{color:var(--accent)}
+.links{display:flex;gap:24px;font-size:14px;font-weight:700}.links a:hover{color:var(--accent)}
+.call{background:var(--dark);color:#fff;padding:10px 15px;border-radius:12px;font-weight:800;font-size:14px}
+.hero{max-width:1180px;margin:0 auto;padding:72px 22px 54px;display:grid;grid-template-columns:1.15fr .85fr;gap:35px;align-items:center}
+.badge{display:inline-flex;background:#eaf1ff;color:#1d4ed8;border:1px solid #cfe0ff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:17px}
+h1{font-size:clamp(40px,6vw,70px);line-height:.98;letter-spacing:-3px;margin-bottom:20px}
+.hero p{font-size:18px;color:var(--muted);max-width:620px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.btn{padding:13px 18px;border-radius:13px;font-weight:850;border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px}
+.primary{background:var(--dark);color:#fff;border-color:var(--dark)}
+.whatsapp{background:var(--green);color:#fff;border-color:var(--green)}
+.hero-card{background:linear-gradient(145deg,#0b1220,#1f2937);border-radius:30px;min-height:350px;color:#fff;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 25px 70px rgba(15,23,42,.18)}
+.phone-art{font-size:130px;text-align:center;filter:drop-shadow(0 20px 20px rgba(0,0,0,.3));padding-top:8px}
+.hero-card small{color:#b9c3d4}.hero-card strong{font-size:28px}
+.section{max-width:1180px;margin:auto;padding:55px 22px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}
+h2{font-size:34px;letter-spacing:-1.5px}.sub{color:var(--muted);font-size:14px}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+.filter{border:1px solid var(--line);background:#fff;padding:9px 14px;border-radius:999px;font-weight:800;cursor:pointer}
+.filter.active,.filter:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;transition:.2s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-4px);box-shadow:0 15px 40px rgba(16,24,40,.09)}
+.tag{position:absolute;top:14px;right:14px;background:#eef4ff;color:#2455c3;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900}
+.device{height:210px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:82px;margin-bottom:15px;overflow:hidden;border:1px solid #eef0f4}.device img{width:100%;height:100%;object-fit:contain;padding:8px}.device.noimg{font-size:82px}
+.brand{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:900}
+.card h3{font-size:18px;margin:3px 0 8px}.price{font-size:20px;font-weight:900}.price small{font-size:11px;color:var(--muted);font-weight:600}
+.card .wa{display:block;margin-top:13px;text-align:center;background:#f0fdf4;color:#15803d;padding:9px;border-radius:10px;font-size:13px;font-weight:900}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.feature{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.feature b{display:block;font-size:17px;margin-bottom:4px}.feature span{font-size:13px;color:var(--muted)}
+.contact{background:var(--dark);color:#fff;border-radius:28px;padding:42px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px}
+.contact p{color:#b8c2d3;margin-top:6px}.contact .btn{background:#fff;color:#101828;border-color:#fff}
+footer{padding:30px 22px;text-align:center;color:var(--muted);font-size:13px}
+.note{font-size:12px;color:var(--muted);margin-top:15px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.links{display:none}.hero{padding-top:45px}h1{letter-spacing:-2px}.grid{grid-template-columns:1fr 1fr;gap:10px}.card{padding:12px;border-radius:16px}.device{height:150px;font-size:60px}.contact{grid-template-columns:1fr;padding:28px}.features{grid-template-columns:1fr}.section{padding:42px 16px}.hero,.navin{padding-left:16px;padding-right:16px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="navin">
+    <a class="logo" href="#">Hitesh <span>Communication</span></a>
+    <div class="links">
+      <a href="#phones">Phones</a><a href="#brands">Brands</a><a href="#contact">Contact</a>
+    </div>
+    <a class="call" href="tel:+919720002682">Call 97200 02682</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="badge">📱 PREMIUM MOBILE GALLERY</div>
+    <h1>Find your next<br><span style="color:#2563eb">perfect phone.</span></h1>
+    <p>Latest smartphones from Apple, Samsung, Vivo, OPPO and realme — with competitive prices and easy WhatsApp support.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#phones">Explore Phones →</a>
+      <a class="btn whatsapp" href="https://wa.me/919720002682?text=Hello%20Hitesh%20Communication%2C%20I%20want%20to%20know%20about%20available%20phones%20and%20prices.">💬 WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div><small>FEATURED</small><br><strong>Latest flagship phones</strong></div>
+    <div class="phone-art">📱</div>
+    <div><small>Call / WhatsApp</small><br><strong>97200 02682</strong></div>
+  </div>
+</header>
+
+<section class="section" id="brands">
+  <div class="section-head">
+    <div><h2>Shop by brand</h2><p class="sub">One gallery. Multiple premium brands.</p></div>
+  </div>
+  <div class="features">
+    <div class="feature"><b> Apple</b><span>iPhone 13 through the latest iPhone 17 Pro Max range.</span></div>
+    <div class="feature"><b>Samsung</b><span>Galaxy smartphones including the flagship S26 Ultra range.</span></div>
+    <div class="feature"><b>Vivo • OPPO • realme</b><span>Latest and popular models across multiple price segments.</span></div>
+  </div>
+</section>
+
+<section class="section" id="phones">
+  <div class="section-head">
+    <div><h2>Featured phones</h2><p class="sub">Product photos are model-specific catalog renders. Prices shown are starting/indicative prices. Confirm the exact variant and current store price on WhatsApp.</p></div>
+  </div>
+  <div class="filters">
+    <button class="filter active" data-brand="All">All</button>
+    <button class="filter" data-brand="Apple">Apple</button>
+    <button class="filter" data-brand="Samsung">Samsung</button>
+    <button class="filter" data-brand="Vivo">Vivo</button>
+    <button class="filter" data-brand="OPPO">OPPO</button>
+    <button class="filter" data-brand="realme">realme</button>
+  </div>
+  <div class="grid" id="catalog"></div>
+  <p class="note">* Product images are model-specific catalog renders. Prices shown are indicative starting prices and can change by storage, colour, stock, offers and your shop's selling price. For the exact current Hitesh Communication price, tap WhatsApp.</p>
+</section>
+
+<section class="section" id="contact">
+  <div class="contact">
+    <div>
+      <h2>Need a phone? Let's talk.</h2>
+      <p>Call or WhatsApp Hitesh Communication for stock, variants, offers and exact prices.</p>
+    </div>
+    <div class="buttons">
+      <a class="btn" href="tel:+919720002682">📞 97200 02682</a>
+      <a class="btn whatsapp" href="https://wa.me/919720002682?text=Hello%20Hitesh%20Communication%2C%20I%20am%20interested%20in%20buying%20a%20phone.">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Hitesh Communication • Mobile Gallery • Call: 97200 02682
+</footer>
+
+<script>
+const products = [
+  // APPLE
+  {brand:"Apple",name:"iPhone 13",price:"₹49,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg"},
+  {brand:"Apple",name:"iPhone 13 Pro",price:"₹79,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Pro"},
+  {brand:"Apple",name:"iPhone 13 Pro Max",price:"₹89,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Pro Max"},
+  {brand:"Apple",name:"iPhone 14",price:"₹59,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg"},
+  {brand:"Apple",name:"iPhone 14 Plus",price:"₹69,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-plus.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg"},
+  {brand:"Apple",name:"iPhone 14 Pro",price:"₹89,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Pro"},
+  {brand:"Apple",name:"iPhone 14 Pro Max",price:"₹99,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro-max.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Pro Max"},
+  {brand:"Apple",name:"iPhone 15",price:"₹69,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg"},
+  {brand:"Apple",name:"iPhone 15 Plus",price:"₹79,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-plus.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg"},
+  {brand:"Apple",name:"iPhone 15 Pro",price:"₹99,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Pro"},
+  {brand:"Apple",name:"iPhone 15 Pro Max",price:"₹1,19,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Pro Max"},
+  {brand:"Apple",name:"iPhone 16",price:"₹79,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Popular"},
+  {brand:"Apple",name:"iPhone 16 Plus",price:"₹89,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-plus.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg"},
+  {brand:"Apple",name:"iPhone 16 Pro",price:"₹1,09,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Pro"},
+  {brand:"Apple",name:"iPhone 16 Pro Max",price:"₹1,29,999",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Pro Max"},
+  {brand:"Apple",name:"iPhone 17",price:"₹82,900",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Latest"},
+  {brand:"Apple",name:"iPhone 17 Air",price:"₹99,900",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-air.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Air"},
+  {brand:"Apple",name:"iPhone 17 Pro",price:"₹1,34,900",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17-pro.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Pro"},
+  {brand:"Apple",name:"iPhone 17 Pro Max",price:"₹1,49,900",img:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17-pro-max.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",tag:"Pro Max"},
+
+  // SAMSUNG — A / M / F / S / Z
+  {brand:"Samsung",name:"Galaxy A07 5G",price:"₹19,499",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a07-5g.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"A Series"},
+  {brand:"Samsung",name:"Galaxy A17 5G",price:"₹22,499",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17-5g.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"A Series"},
+  {brand:"Samsung",name:"Galaxy A26 5G",price:"₹24,999",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a26-5g.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"A Series"},
+  {brand:"Samsung",name:"Galaxy A36 5G",price:"₹33,999",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a36-5g.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"A Series"},
+  {brand:"Samsung",name:"Galaxy A56 5G",price:"₹42,999",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a56-5g.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"A Series"},
+  {brand:"Samsung",name:"Galaxy M06 5G",price:"₹12,499",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m06.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"M Series"},
+  {brand:"Samsung",name:"Galaxy M16 5G",price:"₹13,999",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m16.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"M Series"},
+  {brand:"Samsung",name:"Galaxy M17 5G",price:"₹14,999",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m17.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"M Series"},
+  {brand:"Samsung",name:"Galaxy F06 5G",price:"₹11,999",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f06.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"F Series"},
+  {brand:"Samsung",name:"Galaxy F16 5G",price:"₹13,499",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f16.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"F Series"},
+  {brand:"Samsung",name:"Galaxy S26",price:"₹79,999",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"S Series"},
+  {brand:"Samsung",name:"Galaxy S26+",price:"₹99,999",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-plus.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"S Series"},
+  {brand:"Samsung",name:"Galaxy S26 Ultra",price:"₹1,39,999",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"Ultra"},
+  {brand:"Samsung",name:"Galaxy Z Flip7",price:"₹1,09,999",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip7.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"Foldable"},
+  {brand:"Samsung",name:"Galaxy Z Fold7",price:"₹1,64,999",img:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold7.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra.jpg",tag:"Foldable"},
+
+  // VIVO
+  {brand:"Vivo",name:"vivo Y05",price:"₹14,999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-y05.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg"},
+  {brand:"Vivo",name:"vivo Y21 5G",price:"₹22,499",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-y21-5g.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg"},
+  {brand:"Vivo",name:"vivo Y31t 5G",price:"₹29,999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-y31t-5g.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg"},
+  {brand:"Vivo",name:"vivo Y400 5G",price:"₹31,999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-y400-5g.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg"},
+  {brand:"Vivo",name:"vivo V70 FE",price:"₹44,999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70-fe.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg",tag:"V Series"},
+  {brand:"Vivo",name:"vivo V70",price:"₹59,999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg",tag:"V Series"},
+  {brand:"Vivo",name:"vivo V70 Elite",price:"₹66,999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70-elite.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg",tag:"V Series"},
+  {brand:"Vivo",name:"vivo X300",price:"₹99,999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x300.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg",tag:"X Series"},
+  {brand:"Vivo",name:"vivo X300 Pro",price:"₹1,19,999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x300-pro.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg",tag:"Pro"},
+  {brand:"Vivo",name:"vivo X300 Ultra",price:"₹1,59,999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x300-ultra.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg",tag:"Ultra"},
+  {brand:"Vivo",name:"vivo X Fold5",price:"₹1,49,999",img:"https://fdn2.gsmarena.com/vv/bigpic/vivo-x-fold5.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg",tag:"Foldable"},
+
+  // OPPO
+  {brand:"OPPO",name:"OPPO A6c 4G",price:"₹15,999",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-a6c.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno16.jpg",tag:"A Series"},
+  {brand:"OPPO",name:"OPPO K14 5G",price:"₹17,999",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-k14.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno16.jpg",tag:"K Series"},
+  {brand:"OPPO",name:"OPPO K14x 5G",price:"₹18,999",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-k14x.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno16.jpg",tag:"K Series"},
+  {brand:"OPPO",name:"OPPO Reno16 5G",price:"₹39,999",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno16.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno16.jpg",tag:"Reno"},
+  {brand:"OPPO",name:"OPPO Reno16 Pro",price:"₹49,999",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno16-pro.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno16.jpg",tag:"Reno Pro"},
+  {brand:"OPPO",name:"OPPO Find X9",price:"₹79,999",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x9.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno16.jpg",tag:"Find X"},
+  {brand:"OPPO",name:"OPPO Find X9 Pro",price:"₹1,09,999",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x9-pro.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno16.jpg",tag:"Pro"},
+  {brand:"OPPO",name:"OPPO Find X9 Ultra",price:"₹1,29,999",img:"https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x9-ultra.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno16.jpg",tag:"Ultra"},
+
+  // REALME
+  {brand:"realme",name:"realme 16x 5G",price:"₹14,999",img:"https://fdn2.gsmarena.com/vv/bigpic/realme-16x.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/realme-16-pro.jpg",tag:"Number Series"},
+  {brand:"realme",name:"realme 16 5G",price:"₹19,999",img:"https://fdn2.gsmarena.com/vv/bigpic/realme-16.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/realme-16-pro.jpg",tag:"Number Series"},
+  {brand:"realme",name:"realme 16T 5G",price:"₹21,999",img:"https://fdn2.gsmarena.com/vv/bigpic/realme-16t.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/realme-16-pro.jpg",tag:"Number Series"},
+  {brand:"realme",name:"realme 16 Pro 5G",price:"₹29,999",img:"https://fdn2.gsmarena.com/vv/bigpic/realme-16-pro.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/realme-16-pro.jpg",tag:"Pro"},
+  {brand:"realme",name:"realme 16 Pro+ 5G",price:"₹34,999",img:"https://fdn2.gsmarena.com/vv/bigpic/realme-16-pro-plus.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/realme-16-pro.jpg",tag:"Pro+"},
+  {brand:"realme",name:"realme GT 7T",price:"₹39,999",img:"https://fdn2.gsmarena.com/vv/bigpic/realme-gt-7t.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/realme-16-pro.jpg",tag:"GT Series"},
+  {brand:"realme",name:"realme GT 8 Pro",price:"₹59,999",img:"https://fdn2.gsmarena.com/vv/bigpic/realme-gt-8-pro.jpg",fallback:"https://fdn2.gsmarena.com/vv/bigpic/realme-16-pro.jpg",tag:"GT Pro"}
+];
+
+const catalog=document.getElementById("catalog");
+function render(brand="All"){
+  catalog.innerHTML=products.filter(p=>brand==="All"||p.brand===brand).map(p=>`
+    <article class="card">
+      ${p.tag ? `<div class="tag">${p.tag}</div>` : ""}
+      <div class="device"><img src="${p.img}" alt="${p.name} product photo" loading="lazy" data-fallback="${p.fallback}" onerror="this.onerror=null;this.src=this.dataset.fallback"></div>
+      <div class="brand">${p.brand}</div>
+      <h3>${p.name}</h3>
+      <div class="price">${p.price} <small>starting</small></div>
+      <a class="wa" href="https://wa.me/919720002682?text=${encodeURIComponent("Hello Hitesh Communication, I want to enquire about "+p.name+" and its current price/availability.")}">💬 Ask on WhatsApp</a>
+    </article>`).join("");
+}
+document.querySelectorAll(".filter").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active"); render(btn.dataset.brand);
+  });
+});
+render();
+</script>
+</body>
+</html>
